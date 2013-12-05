@@ -1,0 +1,135 @@
+/* YUI 3.5.0 reset.css (http://developer.yahoo.com/yui/3/cssreset/) - http://cssreset.com */
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+
+/*****LESS Variables*/
+@white: #fff;
+@black: #000;
+/*****End LESS Variables*/
+
+/*****LESS Functions*/
+.box-shadow(@h: 0, @v: 0, @b: 0, @s: 0, @color: @white){
+  -moz-box-shadow: @h @v @b @s @color;
+  -webkit-box-shadow: @h @v @b @s @color;
+  -ms-box-shadow: @h @v @b @s @color;
+  -o-box-shadow: @h @v @b @s @color;
+  box-shadow: @h @v @b @s @color;
+}
+.box-shadow-inset(@h: 0, @v: 0, @b: 0, @s: 0, @color: @white){
+  -moz-box-shadow: @h @v @b @s @color inset;
+  -webkit-box-shadow: @h @v @b @s @color inset;
+  -ms-box-shadow: @h @v @b @s @color inset;
+  -o-box-shadow: @h @v @b @s @color inset;
+  box-shadow: @h @v @b @s @color inset;
+}
+.border-radius(@tl: 2px, @tr: 2px, @br: 2px, @bl: 2px){
+  -moz-border-radius: @tl @tr @br @bl;
+  -webkit-border-radius: @tl @tr @br @bl;
+  -ms-border-radius: @tl @tr @br @bl;
+  -o-border-radius: @tl @tr @br @bl;
+  border-radius: @tl @tr @br @bl;
+}
+.transition(@prop: all, @dur: 250ms, @timing: ease-in, @delay: 0){
+  -moz-transition: @prop @dur @timing @delay;
+  -webkit-transition: @prop @dur @timing @delay;
+  -ms-transition: @prop @dur @timing @delay;
+  -o-transition: @prop @dur @timing @delay;
+  transition: @prop @dur @timing @delay;
+}
+/*****End LESS Functions*/
+
+/*****Global Tag Styles*/
+html {
+  font-size: 62.5%;
+  font-family: verdana, arial, sans-serif;
+}
+
+section {
+  padding: 1em;
+}
+
+h1 {
+  font-size: 2.4em;
+  font-weight: bold;
+  margin: 0 0 1.25em 0;
+}
+h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 0 0 1.11em 0;
+}
+h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0 0 .71em 0;
+}
+
+hr {
+  height: 0;
+  border-bottom: 0;
+  border-top: 1px dashed lighten(@black, 10%);
+}
+th {
+  font-weight: bold;
+}
+/*****End Global Tag Styles*/
+
+/*****Global classes*/
+.clear {
+  clear: both;
+  height: 0;
+}
+.field-input {
+  margin: 0 0 1em 0;
+  label {
+    display: block;
+    font-size: 1.3em;
+  }
+  input {
+    .border-radius();
+    .box-shadow-inset(0, 2px, 3px, 0, darken(@white,15%));
+    .transition(background-color, 250ms, linear, 0s);
+    border: 1px solid lighten(@black, 10%);
+    font-size: 1.2em;
+    padding: .42em 1%;
+    width: 98%;
+  }
+  input:focus {
+    background-color: darken(@white, 5%);
+  }
+}
+.text-center {
+  text-align: center;
+}
+/*****End Global Classes*/
+
+.input-container {
+  float: left;
+  padding: 0 1%;
+  width: 28%;
+}
+.table-container {
+  margin-left: 34%;
+  th {
+    font-size: 1.1em;
+    padding: .18em;
+    text-align: center;
+  }
+  td {
+    padding: .2em;
+    text-align: center;
+  }
+  .bold-cell {
+    font-weight: bold;
+  }
+  .neg {
+    background-color: lighten(#f00,25%);
+  }
+  .analysis {
+    border: 1px solid lighten(@black,10%);
+    margin: 2.5em 0 0;
+    padding: 1em 0;
+  }
+  h3 {
+    text-align: center;
+  }
+}

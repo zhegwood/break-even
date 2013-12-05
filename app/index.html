@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" ng-app="BreakEven">
+<head>
+  <meta charset="utf-8">
+  <title>Break Even Calculator</title>
+  <link rel="stylesheet/less" type="text/css" href="css/style.less"/>
+  <script type="text/javascript" src="lib/less/less.js"></script>
+</head>
+<body>
+	<section data-ng-controller="Main">
+		<h1>Investment Break-even Calculator</h1>
+		<div class="input-container">
+			<div class="field-input">
+				<label>Visits Low</label>
+				<input type="text"
+					data-ng-model="lVisits"
+					data-ng-change="compute()" />
+			</div>
+			<div class="field-input">
+				<label>Visits High</label>
+				<input type="text"
+					data-ng-model="hVisits"
+					data-ng-change="compute()" />
+			</div>
+			<hr/>
+			<div class="field-input">
+				<label>Lowest Price/Visit</label>
+				<input type="text"
+					data-ng-model="ppvl"
+					data-ng-change="compute()" />
+			</div>
+			<div class="field-input">
+				<label>Highest Price/Visit</label>
+				<input type="text"
+					data-ng-model="ppvh"
+					data-ng-change="compute()" />
+			</div>
+			<hr/>
+			<div class="field-input">
+				<label>Avg Visits/Month</label>
+				<input type="text"
+					data-ng-model="vpm"
+					data-ng-change="compute()" />
+			</div>
+			<hr/>
+			<div class="field-input">
+				<label>Loan/Investment</label>
+				<input type="text"
+					data-ng-model="amount"
+					data-ng-change="compute()" />
+			</div>
+
+		</div>
+		<div class="table-container">
+			<div class="table">
+				<table width="100%" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th width="12%"></th>
+							<th colspan="5" class="text-center">$/Visit</th>
+						</tr>
+						<tr>
+							<th width="12%">Visits</th>
+							<th width="21%"
+								data-ng-repeat="dpv in dpvs">{{dpv.val | currency}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-ng-repeat="visit in visits">
+							<td class="bold-cell">{{visit.num}}</td>
+							<td data-ng-class="{neg: visit.v1 < 0}">{{visit.v1 | currency}}</td>
+							<td data-ng-class="{neg: visit.v2 < 0}">{{visit.v2 | currency}}</td>
+							<td data-ng-class="{neg: visit.v3 < 0}">{{visit.v3 | currency}}</td>
+							<td data-ng-class="{neg: visit.v4 < 0}">{{visit.v4 | currency}}</td>
+							<td data-ng-class="{neg: visit.v5 < 0}">{{visit.v5 | currency}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="analysis">
+				<h3>Break Even Analysis</h3>
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th width="12%"></th>
+							<th width="21%"
+								data-ng-repeat="dpv in dpvs">{{dpv.val | currency}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="bold-cell">Visits</td>
+							<td>{{bev1}}</td>
+							<td>{{bev2}}</td>
+							<td>{{bev3}}</td>
+							<td>{{bev4}}</td>
+							<td>{{bev5}}</td>
+						</tr>
+						<tr>
+							<td class="bold-cell">Months</td>
+						</tr>
+						<tr>
+							<td class="bold-cell">Years</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>	
+	</section>
+	<!-- In production use:
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	-->
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
+</body>
+</html>
